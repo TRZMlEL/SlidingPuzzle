@@ -12,7 +12,7 @@ body, .tile{
 
 body{
     background: #1b1b1b;
-    height: 100vw;
+    height: 100vh;
 }
 
 #gameBoard{
