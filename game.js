@@ -1,6 +1,6 @@
 const gameTiles = document.querySelectorAll('.tile');
-
 const gameBoard = document.querySelector('#gameBoard');
+const randomize = document.querySelector('#randomize')
 
 const gameState = [
     [gameTiles[0], gameTiles[1], gameTiles[2]], 
@@ -74,4 +74,8 @@ gameBoard.addEventListener('click', (event) => {
         gameState[x][y] = gameState[emptyX][emptyY];
         gameState[emptyX][emptyY] = temp;
     };
+});
+
+randomize.addEventListener('click', () => {
+    console.log(Math.floor(Math.random() * 3));
 });

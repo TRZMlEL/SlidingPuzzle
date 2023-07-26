@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-body, .tile{
+body, .tile, #background{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,6 +13,14 @@ body, .tile{
 body{
     background: #1b1b1b;
     height: 100vh;
+}
+
+#background{
+    background: #366135;
+    width: 400px;
+    height: 600px;
+    border-radius: 30px;
+    flex-direction: column;
 }
 
 #gameBoard{
