@@ -1,10 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-body, .tile, #background{
+body, .tile{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,6 +15,13 @@ body, .tile, #background{
 body{
     background: #1b1b1b;
     height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1{
+    color: white;
+    font-weight: 700;
+    text-align: center;
 }
 
 #background{
@@ -21,6 +30,9 @@ body{
     height: 600px;
     border-radius: 30px;
     flex-direction: column;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 #gameBoard{
@@ -45,4 +57,23 @@ body{
 .tile:last-of-type{
     background: none;
     border: none;
+}
+
+button{
+    background-color: white;
+    color: #366135;
+    border: solid transparent;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 700;
+    user-select: none;
+    width: 150px;
+    height: 50px;
+    box-shadow: 0px 5px 0px 0px #ababab;
+}
+
+button:active{
+    box-shadow: 0px 0px 0px 0px #ababab;
+    transform: translateY(5px);
 }

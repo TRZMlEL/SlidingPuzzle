@@ -2,7 +2,7 @@ const gameTiles = document.querySelectorAll('.tile');
 const gameBoard = document.querySelector('#gameBoard');
 const randomize = document.querySelector('#randomize')
 
-const gameState = [
+let gameState = [
     [gameTiles[0], gameTiles[1], gameTiles[2]], 
     [gameTiles[3], gameTiles[4], gameTiles[5]], 
     [gameTiles[6], gameTiles[7], gameTiles[8]]
@@ -11,6 +11,7 @@ const gameState = [
 function render(gameBoard, gameState) {
     gameState.forEach((row, rowIndex) =>{
         row.forEach((column, columnIndex) => {
+            console.log(rowIndex, columnIndex);
             column.style.top = `${rowIndex * 100}px`;
             column.style.left = `${columnIndex * 100}px`;
 
@@ -34,7 +35,7 @@ function moveElement(element1, element2){
     element2.style.left = tempLeft;
 }
 
-render(gameBoard, gameState)
+render(gameBoard, gameState);
 
 gameBoard.addEventListener('click', (event) => {
     const target = event.target;
@@ -77,5 +78,13 @@ gameBoard.addEventListener('click', (event) => {
 });
 
 randomize.addEventListener('click', () => {
-    console.log(Math.floor(Math.random() * 3));
+
+    gameState = [
+        [gameTiles[0], gameTiles[1], gameTiles[2]], 
+        [gameTiles[3], gameTiles[4], gameTiles[5]], 
+        [gameTiles[6], gameTiles[7], gameTiles[8]]
+    ];
+    
+    render(gameBoard, gameState);
+
 });
