@@ -84,7 +84,32 @@ randomize.addEventListener('click', () => {
         [gameTiles[3], gameTiles[4], gameTiles[5]], 
         [gameTiles[6], gameTiles[7], gameTiles[8]]
     ];
+
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [array[i], array[j]] = [array[j], array[i]];
+        }
+      }
+      
+      let List = [[0, 0], [0, 1], [0, 2], [1, 0], [1, 1], [1, 2], [2, 0], [2, 1]];
+      let m = 0
+      shuffleArray(List);
+      let newSublist = [2, 2];
+      List.push(newSublist);
+      console.log(List)
     
-    render(gameBoard, gameState);
+    gameState.forEach((row, rowIndex) =>{
+        row.forEach((column, columnIndex) => {
+            column.style.top = `${rowIndex * 100}px`;
+            column.style.left = `${columnIndex * 100}px`;
+
+            column.style['background-position-y'] = `-${List[m][0]*100}px`;
+            column.style['background-position-x'] = `-${List[m][1]*100}px`;
+            m++
+
+            gameBoard.appendChild(column);
+        });
+    });
 
 });
