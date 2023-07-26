@@ -11,16 +11,17 @@ const gameState = [
 function render(gameBoard, gameState) {
     gameState.forEach((row, rowIndex) =>{
         row.forEach((column, columnIndex) => {
-            column.style.top = `${rowIndex * 100}px`
+            column.style.top = `${rowIndex * 100}px`;
             column.style.left = `${columnIndex * 100}px`;
 
-            column.style['background-position-y'] = `${rowIndex*100}px`;
-            column.style['background-position-x'] = `${columnIndex*100}px`;
+            column.style['background-position-y'] = `-${rowIndex*100}px`;
+            column.style['background-position-x'] = `-${columnIndex*100}px`;
 
             gameBoard.appendChild(column);
         });
     });
 };
+
 
 function moveElement(element1, element2){
     const tempTop = element1.style.top;

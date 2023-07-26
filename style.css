@@ -31,6 +31,7 @@ body{
     transition: top 0.2s linear, left 0.2s linear;
     background: url(image.jpg);
     background-size: 300px;
+    user-select: none;
 }
 
 .tile:last-of-type{
