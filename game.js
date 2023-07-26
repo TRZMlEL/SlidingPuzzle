@@ -9,13 +9,31 @@ const gameState = [
 ];
 
 function render(gameBoard, gameState) {
-    gameState.forEach((row) =>{
-        row.forEach((column) => {
+    gameState.forEach((row, rowIndex) =>{
+        row.forEach((column, columnIndex) => {
+            column.style.top = `${rowIndex * 100}px`
+            column.style.left = `${columnIndex * 100}px`;
+
+            column.style['background-position-y'] = `${rowIndex*100}px`;
+            column.style['background-position-x'] = `${columnIndex*100}px`;
+
             gameBoard.appendChild(column);
         });
     });
 };
 
+function moveElement(element1, element2){
+    const tempTop = element1.style.top;
+    const tempLeft = element1.style.left;
+
+    element1.style.top = element2.style.top;
+    element1.style.left = element2.style.left;
+
+    element2.style.top = tempTop;
+    element2.style.left = tempLeft;
+}
+
+render(gameBoard, gameState)
 
 gameBoard.addEventListener('click', (event) => {
     const target = event.target;
@@ -48,9 +66,11 @@ gameBoard.addEventListener('click', (event) => {
     (y === emptyY && (x + 1 === emptyX || x - 1 === emptyX)) || 
     (x === emptyX && (y + 1 === emptyY || y - 1 === emptyY))
     ){
+
+        moveElement( gameState[x][y], gameState[emptyX][emptyY]);
+
         const temp = gameState[x][y];
         gameState[x][y] = gameState[emptyX][emptyY];
         gameState[emptyX][emptyY] = temp;
-        render(gameBoard, gameState);
     };
 });

@@ -18,14 +18,22 @@ body{
 #gameBoard{
     width: 300px;
     height: 300px;
-    display: flex;
-    flex-wrap: wrap;
+    position: relative;
 }
 
 .tile{
+    position: absolute;
     border: 1px solid white;
     height: 100px;
     width: 100px;
-    color: white;
+    color: transparent;
     font-size: 30px;
+    transition: top 0.2s linear, left 0.2s linear;
+    background: url(image.jpg);
+    background-size: 300px;
+}
+
+.tile:last-of-type{
+    background: none;
+    border: none;
 }
