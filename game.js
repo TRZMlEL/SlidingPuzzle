@@ -11,7 +11,6 @@ let gameState = [
 function render(gameBoard, gameState) {
     gameState.forEach((row, rowIndex) =>{
         row.forEach((column, columnIndex) => {
-            console.log(rowIndex, columnIndex);
             column.style.top = `${rowIndex * 100}px`;
             column.style.left = `${columnIndex * 100}px`;
 
@@ -97,7 +96,6 @@ randomize.addEventListener('click', () => {
       shuffleArray(List);
       let newSublist = [2, 2];
       List.push(newSublist);
-      console.log(List)
     
     gameState.forEach((row, rowIndex) =>{
         row.forEach((column, columnIndex) => {
